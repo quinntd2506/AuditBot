@@ -1,0 +1,32 @@
+# Node/Vite build artifacts
+node_modules/
+build/
+dist/
+dist-server/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Database — local data, do not commit
+*.db
+*.db-shm
+*.db-wal
+
+# Cached bot tokens / repos / data
+.codex/
+

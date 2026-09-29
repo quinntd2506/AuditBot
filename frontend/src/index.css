@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: #020617;
+}
+
+/* Beautiful Modern Markdown Styling */
+.markdown-body {
+  @apply text-slate-300 text-[14px] leading-normal;
+}
+.markdown-body h1 {
+  @apply text-xl font-bold text-white mt-6 mb-4;
+}
+.markdown-body h2 {
+  @apply text-lg font-semibold text-white mt-5 mb-3;
+}
+.markdown-body h3, .markdown-body h4 {
+  @apply text-base font-semibold text-white mt-4 mb-2;
+}
+.markdown-body p {
+  @apply mb-3;
+}
+.markdown-body a {
+  @apply text-blue-400 hover:text-blue-300 underline underline-offset-2 decoration-blue-500/30 hover:decoration-blue-400;
+}
+.markdown-body ul {
+  @apply list-disc list-outside ml-5 mb-3 space-y-0.5;
+}
+.markdown-body ol {
+  @apply list-decimal list-outside ml-5 mb-3 space-y-0.5;
+}
+.markdown-body li {
+  @apply pl-1;
+}
+.markdown-body strong {
+  @apply font-semibold text-slate-100;
+}
+.markdown-body code {
+  @apply font-mono text-[13px] bg-slate-800/80 text-pink-300 px-1.5 py-0.5 rounded-md border border-slate-700/50;
+}
+.markdown-body pre code {
+  @apply bg-transparent text-slate-300 p-0 border-none;
+}
+.markdown-body pre {
+  @apply bg-[#0b1120] border border-slate-800/60 p-4 rounded-xl overflow-x-auto mb-4;
+}
+.markdown-body blockquote {
+  @apply border-l-2 border-slate-700 pl-4 text-slate-400 italic mb-4;
+}
+.markdown-body table {
+  @apply w-full text-left border-collapse mb-4 text-sm;
+}
+.markdown-body th {
+  @apply border-b border-slate-700/80 pb-2 px-2 text-slate-200 font-semibold;
+}
+.markdown-body td {
+  @apply border-b border-slate-800/50 py-2 px-2 text-slate-400;
+}
+.markdown-body tr:last-child td {
+  @apply border-b-0;
+}
+.markdown-body hr {
+  @apply border-slate-800/60 my-6;
+}
+
+/* Custom minimal scrollbar for description box */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-slate-700/50 rounded-full;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-600/80;
+}

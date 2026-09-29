@@ -1,0 +1,40 @@
+import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+import {defineConfig, loadEnv} from 'vite';
+
+export default defineConfig(({mode}) => {
+  // Load env from project root (one level up)
+  const env = loadEnv(mode, path.resolve(__dirname, '..'), '');
+  
+  const apiPort = env.API_PORT || '8001';
+  const frontendPort = parseInt(env.FRONTEND_PORT) || 5173;
+
+  return {
+    plugins: [react(), tailwindcss()],
+    define: {
+      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY || ''),
+    },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, '.'),
+      },
+    },
+    server: {
+      port: frontendPort,
+      // HMR is disabled in AI Studio via DISABLE_HMR env var.
+      // Do not modifyâ€”file watching is disabled to prevent flickering during agent edits.
+      hmr: process.env.DISABLE_HMR !== 'true',
+      proxy: {
+        '/api': {
+          target: `http://localhost:${apiPort}`,
+          changeOrigin: true,
+        },
+        '/uploads': {
+          target: `http://localhost:${apiPort}`,
+          changeOrigin: true,
+        },
+      },
+    },
+  };
+});

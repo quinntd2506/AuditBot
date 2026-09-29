@@ -1,0 +1,13 @@
+# Keep the Docker image clean and small
+node_modules
+dist
+dist-server
+.codex
+*.db
+*.db-shm
+*.db-wal
+.env
+.DS_Store
+__pycache__
+*.pyc
+.git

@@ -1,0 +1,1 @@
+# Immunefi worker package

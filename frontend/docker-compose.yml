@@ -1,0 +1,13 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: auditbot-frontend:latest
+    container_name: auditbot-frontend
+    restart: always
+    ports:
+      - "5173:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
